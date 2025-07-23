@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Volume Rendering</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <style>
+        html { background-color: black; }
+        model-viewer { width: 100%; height: 100vh; }
+        :not(:defined) > * { display: none; }
+        .ar-button {
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 16px;
+            padding: 12px 24px;
+            font-family: Roboto, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: #5A5A5A;
+            border-radius: 8px;
+            border: 1px solid #1f5ef1;
+            cursor: pointer;
+        }
+        .ar-button:active { background-color: #E8EAED; }
+        .ar-button:focus { outline: none; }
+        .ar-button:focus-visible { outline: 1px solid #1f5ef1; }
+    </style>
+</head>
+<body>
+    <model-viewer
+        src="data_cube.glb"
+        camera-orbit="0deg 75deg 2.5m"
+        camera-target="0m 0m 0m"
+        shadow-intensity="1"
+        environment-image="legacy"
+        tone-mapping="commerce"
+        autoplay
+        ar
+        ar-modes="webxr quick-look"
+        camera-controls
+        alt="Volume Rendering in AR"
+    >
+        <button slot="ar-button" class="ar-button">Enter AR</button>
+    </model-viewer>
+</body>
+</html>
