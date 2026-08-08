@@ -5,46 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fast Radio Bursts</title>
     <style>
-        body { font-family: "Times New Roman", Times, serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #f4f4f4; }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .content {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px 16px;
+        }
         h1, p {
             color: #333;
             margin: 10px 0;
             text-align: center;
         }
         h1 {
-            font-size: 2.2vw;
+            font-size: clamp(20px, 2.6vw, 32px);
+            line-height: 1.25;
             margin-bottom: 20px;
-            color: #000000;\
+            color: #000000;
+        }
+        a {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         video {
-            
-            width: auto;=
+            width: auto;
             height: auto;
-            max-width: 90vw;
-            max-height: 80vh;
-            object-fit: contain; 
+            max-width: 100%;
+            max-height: 70vh;
+            box-sizing: border-box;
+            object-fit: contain;
             border: 5px solid #ddd;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
             display: block;
             margin: 0 auto;
         }
-        .video-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        footer {
+            flex-shrink: 0;
             width: 100%;
-            flex-grow: 1;
-            padding: 20px 0; 
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            background-color: #f4f4f4;
+        }
+        footer p {
+            color: #666;
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Ray-tracing Through IllustrisTNG:<br>Fast Radio Bursts Dispersion Measures Across the Full Sky</h1>
-    <video controls autoplay loop muted>
-        <source src="Konietzka2025_full_sky_evolution.mp4" type="video/mp4">
-    </video>
-    <p></p>
+    <div class="content">
+        <h1>Ray-tracing Through IllustrisTNG:<br>Fast Radio Bursts Dispersion Measures Across the Full Sky</h1>
+        <video controls autoplay loop muted playsinline webkit-playsinline>
+            <source src="Konietzka2025_full_sky_evolution.mp4" type="video/mp4">
+        </video>
+        <p style="font-size: clamp(16px, 1.8vw, 20px);">The animation/video can be downloaded <a href="https://zenodo.org/records/21431049/files/Konietzka2025_full_sky_evolution.mp4?download=1">here</a>.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025&#8211;2026 Ralf M. Konietzka. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-
