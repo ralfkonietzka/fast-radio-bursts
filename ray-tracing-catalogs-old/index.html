@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FRBcatalogs (v1, archived)</title>
+    <style>
+        body {
+            font-family: "avenir", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+        h1, h2, p {
+            color: #000000;
+            margin: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: #000000;
+            padding-top: 50px;
+        }
+        .subtitle {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 30px; 
+            font-weight: normal;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 1000px;
+        }
+        .subtitle a {
+            color: #1E90FF;
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        .disclaimer {
+            max-width: 900px;
+            width: 90%;
+            margin: 0 auto 30px auto;
+            padding: 15px 22px;
+            background-color: #fff8e1;
+            border: 1px solid #f0d98c;
+            border-radius: 10px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #000000;
+            text-align: center;
+        }
+        .disclaimer a {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+        .main-description {
+            font-size: 20px;
+            color: #000000;
+            max-width: 1000px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+        .main-description a {
+            color: #1E90FF;
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        .main-samples-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+        .additional-samples-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+        .sample-section {
+            margin-bottom: 0;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            text-decoration: none;
+            color: inherit;
+        }
+        .sample-section:hover {
+            transform: scale(1.05);
+        }
+        .sample-section p {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #000000;
+        }
+        .sample-section .view-sample-text {
+            font-size: 14px;
+            color: #888888;
+            display: block; 
+            margin-top: 5px;
+        }
+        .sample-section a {
+            margin: 0 10px;
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .sample-section a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            width: 100%;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        footer p {
+            color: #666;
+        }
+         @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+                margin-bottom: 15px;
+                padding-top: 30px;
+            }
+            .subtitle { 
+            font-size: 16px;
+            }
+            .disclaimer {
+                font-size: 15px;
+            }
+            h2 {
+                font-size: 20px; 
+                margin-bottom: 15px;
+            }
+            .main-description {
+                font-size: 16px;
+                margin-bottom: 30px; 
+            }
+            .main-samples-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 10px;
+                width: 75%;
+            }
+            .additional-samples-container {
+                grid-template-columns: 1fr;
+                gap: 15px; 
+                padding: 0 10px; 
+                width: 75%;
+            }
+            .sample-section p {
+                font-size: 16px;
+            }
+            .sample-section .view-sample-text {
+                font-size: 12px;
+            }
+            footer {
+                margin-top: 30px;
+                padding: 15px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <h1 id="mainTitle">Fast Radio Burst Ray-tracing Catalogs</h1>
+    <p class="subtitle">
+    </p>
+
+    <script>
+        const mainTitle = document.getElementById('mainTitle');
+        const originalTitle = mainTitle.textContent;
+        const mobileTitle = "FRB Ray-tracing Catalogs";
+
+        function changeTitleOnResize() {
+            if (window.innerWidth <= 768) {
+                mainTitle.textContent = mobileTitle;
+            } else {
+                mainTitle.textContent = originalTitle;
+            }
+        }
+        changeTitleOnResize();
+        window.addEventListener('resize', changeTitleOnResize);
+    </script>
+
+    <div class="disclaimer">
+        <strong>Note:</strong> These are the archived version 1 catalogs, kept online for reference only.<br>
+        The current version 2 catalogs are available <a href="https://ralfkonietzka.github.io/fast-radio-bursts/ray-tracing-catalogs/">here</a>.
+    </div>
+
+    <p class="main-description">
+        Each catalog consists of a dispersion measure (DM) dataset of dimension Nrays x Nredshifts entitled <i>DMvalues</i>.
+        Nrays is the number of rays provided. Nredshifts is the number of redshift bins.
+        The redshift values corresponding to the redshift bins can be found in the table entitled <i>redshifts</i>.<br><br>
+        If you use these data, we ask you to cite Konietzka&nbsp;et&nbsp;al., 2025 (<a href="https://arxiv.org/abs/2507.07090" target="_blank">arXiv:2507.07090</a>).<br><br>
+    </p>
+
+    <h2>Main Catalogs</h2>
+
+    <div class="main-samples-container">
+        <a href="https://drive.google.com/uc?export=download&id=1m2com6OGOsa7SmE2wBnmLJIITczIquP5" target="_blank" class="sample-section">
+            <p>Continuous catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1cwoI55qt1HDSR4B0yDeWuysPnhUZvZ8b" target="_blank" class="sample-section">
+            <p>Full-sky catalog 1</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+    </div>
+
+    <h2>Additional Catalogs</h2>
+    <div class="additional-samples-container">
+        <a href="https://drive.google.com/uc?export=download&id=1nrF14oSWcznkOPDjdhah0M0iajUmQqdY" target="_blank" class="sample-section">
+            <p>Random catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1NqQhaJFgQqT1C4t-nDUBXHqrQPmlhMly" target="_blank" class="sample-section">
+            <p>Full-sky catalog 2</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1_SwEKNYwXoFrIhfA2CIFlae6T85kfWFF" target="_blank" class="sample-section">
+            <p>Full-sky catalog 3</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1ouZLDhlr5LiAiv5BC47tsC55Y6m04JMT" target="_blank" class="sample-section">
+            <p>Full-sky catalog 4</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1EQycdtC-TCb7FNxtWatGZteLg7v84ihn" target="_blank" class="sample-section">
+            <p>Full-sky catalog 5</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1xiDFuleD23XRC-5BDCVRp23YF0lBZSNQ" target="_blank" class="sample-section">
+            <p>Full-sky catalog 6</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1H_-Qkpr6x4UXFzRc9t14V3WAfng1yvzq" target="_blank" class="sample-section">
+            <p>Pencil-beam catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1o1drbJM6GBUvlJcZ0SIuULZW-meEOnRa" target="_blank" class="sample-section">
+            <p>Halo mass 0.1 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1KErSm-wcoq1iTr2YrA4f9QHlZiufdgKq" target="_blank" class="sample-section">
+            <p>Halo mass 0.5 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=18B4fGOqfnVoV8nth9VHZjdvhMXN9JtCT" target="_blank" class="sample-section">
+            <p>Halo mass 1.0 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1ldpO1-mThTQ1FaL2vvRMWOl3USiaZIV4" target="_blank" class="sample-section">
+            <p>Halo mass 1.5 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1Uqt3eU3claoVOdfxLdlOulw3TfpZH7L6" target="_blank" class="sample-section">
+            <p>Halo SFR 0.1 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1sXCd21Q95tLWF2NBlMhMPeYAGn4z6x8S" target="_blank" class="sample-section">
+            <p>Halo SFR 0.5 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1VzJwfulbM-gOc6iYeCO9fixMDxxDwowo" target="_blank" class="sample-section">
+            <p>Halo SFR 1.0 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1qpzMW9dFp6jhMYJq8g_3kXALlv5NOTPM" target="_blank" class="sample-section">
+            <p>Halo SFR 1.5 catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1JNaUD25sAgzOjCrfnWtSgBtDsciSzOEX" target="_blank" class="sample-section">
+            <p>Stacked catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1t8Zr4nTU34RC60S9yXhJiBJrWbmEFjix" target="_blank" class="sample-section">
+            <p>Medium stacked catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=15TJSKE9bxzolaahxr0Fdp8uFH3Vl-t5d" target="_blank" class="sample-section">
+            <p>Low stacked catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1UnskPe95qxuqQiKrES66XrZd7MjAK3Nd" target="_blank" class="sample-section">
+            <p>Midsize stacked catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1dCI_5AZYlDhRfQo2jKLqx3tFU5oUblEf" target="_blank" class="sample-section">
+            <p>Small stacked catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1qaPQmsHrr6WQlaAevuW3KRvvkqjGocUp" target="_blank" class="sample-section">
+            <p>Trapezoidal catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+        <a href="https://drive.google.com/uc?export=download&id=1z8FSU7q7HPK8oTnM605h571bGxSyk_MC" target="_blank" class="sample-section">
+            <p>Periodic catalog</p>
+            <span class="view-sample-text">Click to download HDF5 file</span>
+        </a>
+    </div>
+
+
+
+<footer>
+    <p>&copy; 2025&#8211;2026 Ralf M. Konietzka. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
