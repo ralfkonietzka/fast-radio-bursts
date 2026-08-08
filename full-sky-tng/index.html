@@ -72,14 +72,6 @@
         }
     </style>
 </head>
-<script>
-    var vid = document.getElementById('skyVideo');
-    vid.muted = true;
-    function tryPlay() { var p = vid.play(); if (p) { p.catch(function () {}); } }
-    tryPlay();
-    vid.addEventListener('canplay', tryPlay);
-    document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
-</script>
 <body>
     <div class="content">
         <h1>Ray-tracing Through IllustrisTNG:<br>Fast Radio Bursts Dispersion Measures Across the Full Sky</h1>
@@ -88,9 +80,17 @@
         </video>
         <p style="font-size: clamp(16px, 1.8vw, 20px);">The animation/video can be downloaded <a href="https://zenodo.org/records/21431049/files/Konietzka2025_full_sky_evolution.mp4?download=1">here</a>.</p>
     </div>
-
     <footer>
         <p>&copy; 2025&#8211;2026 Ralf M. Konietzka. All rights reserved.</p>
     </footer>
+
+    <script>
+        var vid = document.getElementById('skyVideo');
+        vid.muted = true;
+        function tryPlay() { var p = vid.play(); if (p) { p.catch(function () {}); } }
+        tryPlay();
+        vid.addEventListener('canplay', tryPlay);
+        document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
+    </script>
 </body>
 </html>
